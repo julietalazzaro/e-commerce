@@ -4,6 +4,7 @@ let categorias = document.querySelector(".categorias");
 let productos = document.querySelector(".productos");
 let productosCards = document.querySelector(".productos__cards");
 let footer = document.querySelector(".footer");
+let carrito = document.querySelector(".carrito");
 let loader = document.querySelector(".loader");
 let productoDestacado = document.querySelector("#productoDestacado");
 let productosTitle = document.querySelector(".productos__title");
@@ -12,6 +13,10 @@ let modalProductoImg = document.querySelector(".modalProducto__img");
 let modalProductoDesc = document.querySelector(".modalProducto__text");
 let modalProductoPrice = document.querySelector(".modalProducto__price");
 let modalProductoBtn = document.querySelector("#modalProductoBtn");
+let btnCarritoModal = document.querySelector("#btnCarritoModal");
+let btnCarrito = document.querySelector(".header__cart");
+let btnAgregarCarrito = document.querySelector("#btnAgregarCarrito");
+let btnAgregarCarritoModal = document.querySelector("#btnAgregarCarritoModal");
 
 let categoriasArr = [
   "electronics",
@@ -19,6 +24,13 @@ let categoriasArr = [
   "men clothing",
   "women clothing",
 ];
+
+let carritoItems = new Array();
+
+if (localStorage.getItem("carritoStorage")) {
+  let local = localStorage.getItem("carritoStorage");
+  carritoItems = local.split("$$$$$,");
+}
 
 if (main) {
   loader.style.display = "flex";
@@ -33,7 +45,7 @@ if (main) {
     .then((res) => res.json())
     .then((res) => {
       let item = res[0];
-      productoDestacado.innerHTML = `
+      item.productoDestacado.innerHTML = `
       <img class="main__producto-img" src="${item.image}" alt="img" />
         <h4 class="main__producto-title">${item.title}</h4>
         <p class="main__producto-text" >${item.description}</p>
@@ -87,7 +99,8 @@ if (main) {
               data-title="${res[item].title}" 
               data-price="${res[item].price}" 
               data-desc="${res[item].description}" 
-              data-img="${res[item].image}">
+              data-img="${res[item].image}"
+              id="btnAgregarCarrito">
               Agregar al carrito
             </button>
           </div>
@@ -113,26 +126,75 @@ if (main) {
     if (e.target.getAttribute("id") == "modalTrigger") {
       modalProductoTitle.innerHTML = e.target.getAttribute("data-title");
       modalProductoImg.setAttribute("src", e.target.getAttribute("data-img"));
-      console.log(e.target.getAttribute("data-img"));
       modalProductoDesc.innerHTML = e.target.getAttribute("data-desc");
       modalProductoPrice.innerHTML =
         "Precio: $" + e.target.getAttribute("data-price");
-      modalProductoBtn.setAttribute(
+      btnAgregarCarritoModal.setAttribute(
         "data-title",
         e.target.getAttribute("data-title")
       );
-      modalProductoBtn.setAttribute(
+      btnAgregarCarritoModal.setAttribute(
         "data-img",
         e.target.getAttribute("data-img")
       );
-      modalProductoBtn.setAttribute(
+      btnAgregarCarritoModal.setAttribute(
         "data-desc",
         e.target.getAttribute("data-desc")
       );
-      modalProductoBtn.setAttribute(
+      btnAgregarCarritoModal.setAttribute(
         "data-price",
         e.target.getAttribute("data-price")
       );
+    } else if (e.target.getAttribute("id") == "btnAgregarCarrito") {
+      let item = `<div class="carrito__item">
+        <div class="carrito__item-cabecera">
+          <h3 class="carrito__item-titulo">${e.target.getAttribute(
+            "data-title"
+          )}</h3>
+          <p class="carrito__item-desc">
+            ${e.target.getAttribute("data-desc")}
+          </p>
+        </div>
+        <p class="carrito__precio">$ ${e.target.getAttribute("data-price")}</p>
+      </div>$$$$$`;
+      // e.target.getAttribute("data-img"),
+      // carrito = carrito + localStorage.getItem("carritoStorage");
+      carritoItems.push(item);
+      localStorage.setItem("carritoStorage", carritoItems);
     }
   });
+
+  btnAgregarCarritoModal.addEventListener("click", function (e) {
+    let item = new ItemCarrito(
+      e.target.getAttribute("data-title"),
+      e.target.getAttribute("data-img"),
+      e.target.getAttribute("data-desc"),
+      e.target.getAttribute("data-price")
+    );
+    carritoItems.push(item);
+    localStorage.setItem("carritoStorage", carritoItems);
+  });
+} else if (carrito) {
+  let total = 0;
+  if (carritoItems.length > 0) {
+    for (item in carritoItems) {
+      // total += preciosCarrito[item];
+      carritoItems[item] = carritoItems[item].replace("$$$$$", "");
+      carrito.innerHTML += carritoItems[item];
+    }
+
+    let preciosCarrito = document.getElementsByClassName("carrito__precio");
+    for (precio in preciosCarrito) {
+      let i = preciosCarrito[precio].innerHTML;
+      if (i) {
+        i = i.replace("$ ", "");
+        total += parseInt(i);
+      }
+    }
+    carrito.innerHTML += `<p class="carrito__precio-total">$ ${total}</p>
+      `;
+  } else {
+    carrito.innerHTML = `
+      <h2 class="productos__title">Aún no hay items en tu carrito..<h2>`;
+  }
 }
