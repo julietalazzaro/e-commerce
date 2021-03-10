@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Hola SummerHackeres! ❤ Soy Juli-->
+  <head>
+    <!-- Metas -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Pagina Super Heroes Oracle para programa Summerhack EscuelaDevRock"
+    />
+    <meta
+      name="keywords"
+      content="super, heroes, oracle, oraculo, super heroes, summerhack, escueladevrock"
+    />
+    <meta name="author" content="julietalazzaro" />
+    <meta name="copyright" content="Julieta Lazzaro 2021" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/94386a8584.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Fuentes -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icono -->
+    <link rel="shortcut icon" href="img/globe.png" type="image/x-icon" />
+
+    <!-- Robots -->
+    <meta name="robots" content="index nofollow" />
+
+    <!-- Facebook card -->
+    <meta property="al:web:url" content="https://superheroesoracle.web.app/" />
+    <meta property="og:url" content="https://superheroesoracle.web.app/" />
+    <meta property="og:title" content="Super Heroes Oracle" />
+    <meta
+      property="og:description"
+      content="Reto semanal 04 | SuperHeroesOracle para programa Summerhack EscuelaDevRock"
+    />
+    <meta
+      property="og:image"
+      content="https://superheroesoracle.web.app/img/bola2.png"
+    />
+    <meta property="og:image.alt" content="Super Heroes Oracle" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter card -->
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:site" content="@julietalazzaro" />
+    <meta property="twitter:creator" content="@julietalazzaro" />
+    <meta property="twitter:title" content="Super Heroes Oracle" />
+    <meta
+      property="twitter:description"
+      content="Reto semanal 04 | SuperHeroesOracle para programa Summerhack EscuelaDevRock"
+    />
+    <meta
+      property="twitter:image"
+      content="https://superheroesoracle.web.app/img/bola2.png"
+    />
+    <meta property="twitter:url" content="https://superheroesoracle.web.app" />
+
+    <title>E-commerce</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">
+            <img
+              class="header__logo"
+              src="img/globe.png"
+              alt="Logo"
+            />&nbsp;&nbsp;e-commerce
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="productos.html?category=electronics"
+                  >Electronics</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="productos.html?category=jewelery"
+                  >Jewelery</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="productos.html?category=men clothing"
+                  >Men clothing</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="productos.html?category=women clothing"
+                  >Women clothing</a
+                >
+              </li>
+            </ul>
+          </div>
+          <img
+            src="img/shoppingbag.ico"
+            class="header__cart"
+            alt="Imagen producto"
+          />
+        </div>
+      </nav>
+    </header>
+
+    <section class="loader">
+      <div class="sk-cube-grid">
+        <div class="sk-cube sk-cube1"></div>
+        <div class="sk-cube sk-cube2"></div>
+        <div class="sk-cube sk-cube3"></div>
+        <div class="sk-cube sk-cube4"></div>
+        <div class="sk-cube sk-cube5"></div>
+        <div class="sk-cube sk-cube6"></div>
+        <div class="sk-cube sk-cube7"></div>
+        <div class="sk-cube sk-cube8"></div>
+        <div class="sk-cube sk-cube9"></div>
+      </div>
+    </section>
+
+    <section class="main">
+      <h3 class="main__title">Producto destacado</h3>
+      <div id="productoDestacado" class="main__producto"></div>
+    </section>
+    <section class="categorias padding-tb">
+      <div class="card" style="width: 18rem">
+        <img src="img/electronics.png" class="card-img-top" alt="electronics" />
+        <div class="card-body">
+          <h5 class="card-title">Electronics</h5>
+          <a href="productos.html?category=electronics" class="btn btn-primary"
+            >Ver los productos</a
+          >
+        </div>
+      </div>
+      <div class="card" style="width: 18rem">
+        <img src="img/rings.png" class="card-img-top" alt="Jewelery" />
+        <div class="card-body">
+          <h5 class="card-title">Jewelery</h5>
+          <a href="productos.html?category=jewelery" class="btn btn-primary"
+            >Ver los productos</a
+          >
+        </div>
+      </div>
+      <div class="card" style="width: 18rem">
+        <img src="img/tie.png" class="card-img-top" alt="man clothing" />
+        <div class="card-body">
+          <h5 class="card-title">Man clothing</h5>
+          <a href="productos.html?category=men clothing" class="btn btn-primary"
+            >Ver los productos</a
+          >
+        </div>
+      </div>
+      <div class="card" style="width: 18rem">
+        <img src="img/dress.png" class="card-img-top" alt="woman clothing" />
+        <div class="card-body">
+          <h5 class="card-title">Woman clothing</h5>
+          <a
+            href="productos.html?category=women clothing"
+            class="btn btn-primary"
+            >Ver los productos</a
+          >
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      &copy; 2021 Julieta Lazzaro | SummerHack - EscuelaDevRock
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
+  </body>
+</html>
