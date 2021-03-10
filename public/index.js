@@ -45,7 +45,7 @@ if (main) {
     .then((res) => res.json())
     .then((res) => {
       let item = res[0];
-      item.productoDestacado.innerHTML = `
+      productoDestacado.innerHTML = `
       <img class="main__producto-img" src="${item.image}" alt="img" />
         <h4 class="main__producto-title">${item.title}</h4>
         <p class="main__producto-text" >${item.description}</p>
