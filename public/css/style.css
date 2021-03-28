@@ -1,4 +1,4 @@
-/* 
+/*
 
 COLORES
 
@@ -9,7 +9,7 @@ COLORES
 #ffbe9c
 
 #725fb0
-#9280d6 
+#9280d6
 #a799de
 #d8b966
 #feedc2
@@ -18,7 +18,7 @@ COLORES
 
 
 
-FUENTES 
+FUENTES
 font-family: 'Permanent Marker', cursive;
 font-family: 'Roboto', sans-serif;
  */
@@ -40,6 +40,14 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
+
+  font-size: 20px;
+  line-height: 1.5rem;
+}
+
+::selection {
+  background: #8eccef;
+  color: #666;
 }
 
 /* HELPERS */
@@ -110,15 +118,16 @@ body {
   /* min-height: 500px; */
 }
 
-.main__title {
+/* .main__title {
   float: left;
   flex-basis: 30%;
   margin-right: 30px;
   min-width: 250px;
   padding: 30px 0;
-}
+} */
+
 .main__producto {
-  flex-basis: 60%;
+  padding: 20px 70px;
   align-items: flex-end;
   display: flex;
   flex-flow: column;
@@ -131,19 +140,32 @@ body {
 .main__producto-text {
   word-wrap: break-word;
   overflow: hidden;
-  height: 50px;
+  height: 4.6rem;
+  width: 50%;
 
   text-align: right;
 }
 .main__producto-title {
   text-align: right;
+  font-weight: 700;
+}
+.main__card {
+  margin: 10px;
+  height: 295px;
+}
+
+.main__producto-precio {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+  font-weight: 700;
 }
 
 .card__img {
+  width: 200px;
 }
-.card {
-  margin: 10px;
-  height: 390px;
+.card__title {
+  margin: -25px 0 20px 7px;
 }
 .categorias {
   flex: 1 0 auto;
@@ -167,17 +189,42 @@ body {
 }
 .productos__cards .card {
   min-height: 576px;
+  margin: 10px;
 }
+
+.card__img-box {
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .productos__cards-img {
-  height: 310px;
+  max-height: 250px;
+  width: auto;
 }
 .productos__cards-title {
-  min-height: 72px;
+  height: 4.5rem;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  overflow: hidden;
 }
 .productos__cards-text {
   word-wrap: break-word;
   overflow: hidden;
-  height: 75px;
+  height: 6rem;
+}
+
+.productos__alert {
+  position: fixed;
+  z-index: 5;
+  bottom: 20px;
+  display: none;
+}
+.productos__alert-link {
+  text-decoration: none;
+  color: #003bb0;
+  font-weight: 700;
 }
 .modal-body {
   text-align: center;
@@ -189,7 +236,9 @@ body {
 .modalProducto__text {
   text-align: justify;
 }
-
+.modalProducto__title {
+  font-weight: 700;
+}
 .modalProducto__price {
   font-size: 1.2rem;
   font-weight: 700;
@@ -242,17 +291,20 @@ body {
   display: inline;
   hyphens: auto;
   overflow-wrap: break-word;
-  padding-left: 20px;
+  padding-left: 10px;
   margin: 0;
   margin-right: 20px;
+  font-weight: 700;
   word-wrap: break-word;
 }
 .carrito__item-desc {
   margin: 0;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
+
+  white-space: nowrap;
   overflow: hidden;
-  width: 70%;
+  text-overflow: ellipsis;
+  padding-left: 10px;
+  width: 90%;
   height: 25px;
 }
 .carrito__precio {
@@ -271,6 +323,21 @@ body {
   float: right;
   font-size: 1.5rem;
   font-weight: 700;
+}
+.header__cart {
+  position: relative;
+}
+.header__cart-badge {
+  position: absolute;
+  right: -3px;
+  top: 2px;
+  height: 20px;
+  width: 23px;
+  font-size: 12px;
+}
+
+#btnBorrarCarrito {
+  height: 44px;
 }
 /* LOADER */
 .loader {
@@ -363,16 +430,62 @@ body {
 @media (max-width: 790px) {
   .main {
     justify-content: center;
+    padding: 0;
   }
   .productoDestacado {
     justify-content: center;
     align-items: center;
   }
+  #btnComprarDestacado {
+    font-weight: 700;
+  }
+  .main__producto {
+    padding: 20px;
+  }
   .main__producto-title {
     text-align: justify;
   }
   .main__producto-text {
-    height: 100px;
+    height: 6rem;
     text-align: justify;
+    width: 100%;
+  }
+
+  .navbar-brand {
+    order: 1;
+    margin-right: 0;
+  }
+  .navbar-toggler {
+    order: 3;
+  }
+  .header__cart {
+    order: 2;
+  }
+  .header__logo {
+    height: 65px;
+  }
+  .header__cart-img {
+    height: 65px;
+  }
+  .carrito__item-cabecera {
+    width: 100%;
+  }
+  .carrito__item-titulo {
+    padding-left: 10px;
+  }
+  .carrito__item-desc {
+    width: 100%;
+    padding-left: 10px;
+    height: 2rem;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .carrito__precio {
+    margin-left: 10px;
+  }
+  .navbar-brand {
+    font-size: 0.9rem;
   }
 }

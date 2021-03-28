@@ -135,6 +135,9 @@
               class="header__cart-img"
               alt="Imagen producto"
             />
+            <span class="badge rounded-pill bg-danger header__cart-badge"
+              >0</span
+            >
           </a>
         </div>
       </nav>
@@ -142,6 +145,10 @@
 
     <section class="productos">
       <h2 class="productos__title">Productos</h2>
+      <div class="alert alert-primary productos__alert" role="alert">
+        Agregaste tu producto al
+        <a class="productos__alert-link" href="carrito.html">carrito</a>!
+      </div>
       <div class="productos__cards"></div>
     </section>
     <section class="loader">
