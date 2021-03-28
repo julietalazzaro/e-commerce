@@ -76,12 +76,7 @@ if (main) {
             e.target.getAttribute("data-price")
           );
           // e.target.getAttribute("data-img"),
-          // carrito = carrito + localStorage.getItem("carritoStorage");
-          carritoItems.push(item);
-          console.log(carritoItems);
-          console.log(JSON.stringify(carritoItems));
-          localStorage.setItem("carritoStorage", JSON.stringify(carritoItems));
-          cartBadge.innerHTML = carritoItems.length;
+          agregarItemCarrito(item);
           location.href = "carrito.html";
         });
     });
@@ -180,14 +175,8 @@ if (main) {
         e.target.getAttribute("data-price")
       );
       // e.target.getAttribute("data-img"),
-      // carrito = carrito + localStorage.getItem("carritoStorage");
-      carritoItems.push(item);
-      localStorage.setItem("carritoStorage", JSON.stringify(carritoItems));
-      cartBadge.innerHTML = carritoItems.length;
-      alert.style.display = "block";
-      setTimeout(() => {
-        alert.style.display = "none";
-      }, 2000);
+      agregarItemCarrito(item);
+      mostrarAlerta();
     }
   });
 
@@ -198,16 +187,14 @@ if (main) {
       e.target.getAttribute("data-desc"),
       e.target.getAttribute("data-price")
     );
-    carritoItems.push(item);
-    localStorage.setItem("carritoStorage", JSON.stringify(carritoItems));
-    cartBadge.innerHTML = carritoItems.length;
+    agregarItemCarrito(item);
     document.querySelector(".btn-close").click();
+    mostrarAlerta();
   });
 } else if (carrito) {
   let total = 0;
   if (carritoItems.length > 0) {
     for (item in carritoItems) {
-      // total += preciosCarrito[item];
       carritoItems[item] = carritoItems[item]
         .replace("$$$$$,", "")
         .replace("$$$$$", "");
@@ -229,12 +216,18 @@ if (main) {
       .addEventListener("click", (e) => {
         localStorage.clear();
         cartBadge.innerHTML = 0;
-        carrito.innerHTML = `
-      <h2 class="productos__title">Aún no hay items en tu carrito..<h2>`;
+        carrito.innerHTML = `<div class="container carrito_vacio">
+        <h2 class="productos__title ">Aún no hay items en tu carrito... </h2><br>
+        <h3> Que estas esperando para comprar todo lo que te falta?</h3>
+        <h4>Podes empezar por <a href="/">aca</a>.</h4>
+      </div>`;
       });
   } else {
-    carrito.innerHTML = `
-      <h2 class="productos__title">Aún no hay items en tu carrito..<h2>`;
+    carrito.innerHTML = `<div class="container carrito_vacio">
+        <h2 class="productos__title ">Aún no hay items en tu carrito... </h2><br>
+        <h3> Que estas esperando para comprar todo lo que te falta?</h3>
+        <h4>Podes empezar por <a href="index.html">aca</a>.</h4>
+      </div>`;
   }
 }
 
@@ -249,4 +242,16 @@ function fillItemCarrito(tit, img, desc, price) {
         <p class="carrito__precio">$ ${price}</p>
       </div>$$$$$`;
   return item;
+}
+function agregarItemCarrito(item) {
+  carritoItems.push(item);
+  localStorage.setItem("carritoStorage", JSON.stringify(carritoItems));
+  cartBadge.innerHTML = carritoItems.length;
+}
+
+function mostrarAlerta() {
+  alert.style.display = "block";
+  setTimeout(() => {
+    alert.style.display = "none";
+  }, 2000);
 }

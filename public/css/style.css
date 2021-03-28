@@ -267,6 +267,13 @@ body {
   width: 100%;
 }
 
+.carrito_vacio {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
 .carrito__item {
   background-color: #bbb;
   align-items: center;
