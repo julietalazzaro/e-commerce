@@ -141,7 +141,7 @@ body {
   word-wrap: break-word;
   overflow: hidden;
   height: 4.6rem;
-  width: 50%;
+  width: 80%;
 
   text-align: right;
 }
@@ -441,6 +441,7 @@ body {
   }
   .main__producto {
     padding: 20px;
+    align-items: center;
   }
   .main__producto-title {
     text-align: justify;
@@ -449,6 +450,9 @@ body {
     height: 6rem;
     text-align: justify;
     width: 100%;
+  }
+  .main__producto-img {
+    width: auto;
   }
 
   .navbar-brand {
