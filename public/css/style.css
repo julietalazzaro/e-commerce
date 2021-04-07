@@ -103,6 +103,18 @@ body {
   max-width: fit-content;
 }
 
+.header__cart {
+  position: relative;
+}
+.header__cart-badge {
+  position: absolute;
+  right: -3px;
+  top: 2px;
+  height: 20px;
+  width: 23px;
+  font-size: 12px;
+}
+
 /* MAIN*/
 
 .main {
@@ -330,17 +342,6 @@ body {
   float: right;
   font-size: 1.5rem;
   font-weight: 700;
-}
-.header__cart {
-  position: relative;
-}
-.header__cart-badge {
-  position: absolute;
-  right: -3px;
-  top: 2px;
-  height: 20px;
-  width: 23px;
-  font-size: 12px;
 }
 
 #btnBorrarCarrito {
